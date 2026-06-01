@@ -1,7 +1,7 @@
 import React from "react";
  
-import DataTestForm from "../components/DataTestForm";
-import DataTestList from "../components/DataTestList";
+import DataCrudForm from "../components/DataCrudForm";
+import DataCrudList from "../components/DataCrudList";
 import useDataTest from "../hooks/useDataTest";
  
 const Contact = () => {
@@ -15,10 +15,12 @@ const Contact = () => {
     error,
     message,
     id,
-    name,
-    setName,
-    age,
-    setAge,
+    cancion,
+    setCancion,
+    cantante,
+    setCantante,
+    nacionalidad,
+    setNacionalidad,
     openCreateForm,
     handleEdit,
     handleSubmit,
@@ -30,14 +32,14 @@ const Contact = () => {
       <div className="mx-auto w-full max-w-6xl space-y-6">
         <header className="rounded-3xl bg-slate-900 px-6 py-8 text-white shadow-xl shadow-slate-200">
           <p className="text-sm uppercase tracking-[0.25em] text-blue-300">
-            Data Test CRUD
+            Data Cantante CRUD
           </p>
           <h1 className="mt-3 text-3xl font-bold sm:text-4xl">
-            Contact ahora funciona como CRUD para la API remota
+            CRUD para la API remota
           </h1>
           <p className="mt-3 max-w-3xl text-sm text-slate-300 sm:text-base">
             Puedes crear, editar, eliminar y volver a cargar los registros con
-            nombre y edad desde la API de Retool.
+            cancion, cantante y nacionalidad desde la API de Retool.
           </p>
  
           <div className="mt-6 flex flex-wrap gap-3">
@@ -67,12 +69,14 @@ const Contact = () => {
         </header>
  
         {activeTab === "form" ? (
-          <DataTestForm
+          <DataCrudForm
             id={id}  //props
-            name={name}
-            setName={setName}
-            age={age}
-            setAge={setAge}
+            cancion={cancion}
+            setCancion={setCancion}
+            cantante={cantante}
+            setCantante={setCantante}
+            nacionalidad={nacionalidad}
+            setNacionalidad={setNacionalidad}
             onSubmit={handleSubmit}
             onCancel={() => setActiveTab("list")}
             submitting={submitting}
@@ -80,7 +84,7 @@ const Contact = () => {
             message={message}
           />
         ) : (
-          <DataTestList
+          <DataCrudList
             dataTest={dataTest}
             loading={loading}
             error={error}
