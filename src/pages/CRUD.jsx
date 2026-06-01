@@ -2,7 +2,7 @@ import React from "react";
  
 import DataCrudForm from "../components/DataCrudForm";
 import DataCrudList from "../components/DataCrudList";
-import useDataTest from "../hooks/useDataTest";
+import useDataCrud from "../hooks/useDataCrud";
  
 const Contact = () => {
  
@@ -25,7 +25,7 @@ const Contact = () => {
     handleEdit,
     handleSubmit,
     handleDelete,
-  } = useDataTest();
+  } = useDataCrud();
  
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-100 via-white to-blue-50 px-4 py-10">
